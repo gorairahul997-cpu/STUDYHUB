@@ -1,0 +1,189 @@
+/* ============================================
+   EXAMS TRACKER STYLES
+   ============================================ */
+
+.exams-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 7px var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+/* --- Exam Cards --- */
+.exams-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.exam-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.exam-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-focus);
+}
+
+.exam-card.past {
+  opacity: 0.55;
+  background: #FAFAFA;
+}
+
+.exam-card-left-bar {
+  width: 4px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.exam-card.urgent   .exam-card-left-bar { background: var(--red); }
+.exam-card.warning  .exam-card-left-bar { background: var(--amber); }
+.exam-card.safe     .exam-card-left-bar { background: var(--green); }
+.exam-card.past     .exam-card-left-bar { background: var(--border); }
+
+/* Countdown Badge */
+.exam-countdown-badge {
+  min-width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.exam-card.urgent  .exam-countdown-badge { background: #FEE2E2; color: #991B1B; }
+.exam-card.warning .exam-countdown-badge { background: #FEF3C7; color: #92400E; }
+.exam-card.safe    .exam-countdown-badge { background: #D1FAE5; color: #065F46; }
+.exam-card.past    .exam-countdown-badge { background: #F3F4F6; color: #6B7280; }
+
+.exam-days-num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.exam-days-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Exam Card Info */
+.exam-card-info {
+  flex: 1;
+}
+
+.exam-card-subject {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.exam-card-date {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.exam-card-syllabus {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 400px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.exam-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.exam-importance-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.exam-card-actions {
+  display: flex;
+  gap: var(--space-1);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.exam-card:hover .exam-card-actions { opacity: 1; }
+
+/* Past exams section */
+.exams-section-header {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+  margin: var(--space-6) 0 var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.exams-section-header::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: var(--border);
+}
+
+@media (max-width: 600px) {
+  .exam-card { flex-wrap: wrap; }
+  .exam-card-right { flex-direction: row; align-items: center; }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyDesk — Class 12 Organizer</title>
+  <meta name="description" content="A premium student organizer for Class 12 — track subjects, exams, tuitions, and more." />
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- KaTeX for Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71bxN/6T" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+GqIGz404L2+tJ11npeVnBqx00mCpw/XfK7e21P6YpT" crossorigin="anonymous"></script>
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/slider.css" />
+  <link rel="stylesheet" href="css/calendar.css" />
+  <link rel="stylesheet" href="css/subjects.css" />
+  <link rel="stylesheet" href="css/exams.css" />
+  <link rel="stylesheet" href="css/tuitions.css" />
+  <link rel="stylesheet" href="css/settings.css" />
+  <link rel="stylesheet" href="css/payments.css" />
+  <link rel="stylesheet" href="css/expense.css" />
+
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <img src="assets/logo.png" alt="StudyDesk Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;" />
+      </div>
+      <span class="brand-name">StudyDesk</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item active" data-page="dashboard" title="Dashboard (Alt + 1)">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="#sliders" class="nav-item" data-page="sliders" title="My Board (Alt + 2)">
+        <span class="nav-icon">🎛️</span>
+        <span class="nav-label">My Board</span>
+      </a>
+      <a href="#calendar" class="nav-item" data-page="calendar" title="Calendar (Alt + 3)">
+        <span class="nav-icon">📅</span>
+        <span class="nav-label">Calendar</span>
+      </a>
+      <a href="#subjects" class="nav-item" data-page="subjects" title="Subjects (Alt + 4)">
+        <span class="nav-icon">📚</span>
+        <span class="nav-label">Subjects</span>
+      </a>
+      <a href="#exams" class="nav-item" data-page="exams" title="Exams (Alt + 5)">
+        <span class="nav-icon">📝</span>
+        <span class="nav-label">Exams</span>
+      </a>
+      <a href="#tuitions" class="nav-item" data-page="tuitions" title="Tuitions (Alt + 6)">
+        <span class="nav-icon">🎓</span>
+        <span class="nav-label">Tuitions</span>
+      </a>
+      <a href="#payments" class="nav-item" data-page="payments" title="Sir Payment (Alt + 7)">
+        <span class="nav-icon">💰</span>
+        <span class="nav-label">Sir Payment</span>
+      </a>
+      <a href="#expense" class="nav-item" data-page="expense" title="Expenses (Alt + 8)">
+        <span class="nav-icon">💸</span>
+        <span class="nav-label">Expenses</span>
+      </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="#settings" class="nav-item" data-page="settings" title="Settings (Alt + 9)">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Settings</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Sidebar Toggle (Tablet) -->
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContent">
+    <div id="page-dashboard" class="page active"></div>
+    <div id="page-sliders" class="page"></div>
+    <div id="page-calendar" class="page"></div>
+    <div id="page-subjects" class="page"></div>
+    <div id="page-exams" class="page"></div>
+    <div id="page-tuitions" class="page"></div>
+    <div id="page-payments" class="page"></div>
+    <div id="page-expense" class="page"></div>
+
+    <div id="page-settings" class="page"></div>
+  </main>
+
+  <!-- Global Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalBox">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/subjects.js"></script>
+  <script src="js/exams.js"></script>
+  <script src="js/tuitions.js"></script>
+
+  <script src="js/payments.js"></script>
+  <script src="js/expense.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

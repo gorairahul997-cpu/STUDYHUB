@@ -1,0 +1,215 @@
+/* ============================================
+   SLIDER / MY BOARD STYLES — Premium Redesign
+   ============================================ */
+
+/* ---- Section Layout ---- */
+.slider-section {
+  margin-bottom: var(--space-10);
+}
+
+.slider-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1.5px solid var(--border);
+  gap: var(--space-4);
+}
+
+.slider-section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.slider-section-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.board-column {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+}
+
+.board-column-header {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+}
+
+.board-column-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.board-column-count {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.board-column-body {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 80px;
+}
+
+/* Board Cards */
+.board-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  padding: var(--space-4);
+  cursor: grab;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.board-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.board-card:hover {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.board-card:hover::before { opacity: 1; }
+
+.board-card.dragging { opacity: 0.4; transform: scale(0.95); cursor: grabbing; }
+.board-card.drag-target { border-color: var(--accent); border-style: dashed; }
+
+.board-card-icon { font-size: 1.5rem; margin-bottom: var(--space-2); display: block; }
+
+.board-card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.board-card-body {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: var(--space-3);
+}
+
+.board-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.board-card-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.board-card:hover .board-card-actions { opacity: 1; }
+
+/* Add card inside column */
+.board-add-card-btn {
+  width: 100%;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-md);
+  background: none;
+  padding: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  transition: all var(--transition-fast);
+}
+
+.board-add-card-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* Add Column Button */
+.board-add-col-btn {
+  min-height: 100px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  background: none;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  transition: all var(--transition-fast);
+}
+
+.board-add-col-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+@media (max-width: 900px) {
+  .board-columns { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .board-columns { grid-template-columns: 1fr; }
+  .dock-shelf { flex-wrap: wrap; justify-content: center; }
+}
